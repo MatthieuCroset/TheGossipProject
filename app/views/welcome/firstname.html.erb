@@ -1,0 +1,19 @@
+<h1 class="display-3">Hello, <%= @user.first_name %>!</h1>
+
+<div class="row">
+<% Gossip.all.each do |potin|%>
+  <%@gossip = potin %>
+  <div class="col">
+    <div class="card mb-4" style="width: 17rem; height: 12rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= potin.title.capitalize!%></h5>
+        <h6 class="card-subtitle mb-2 text-muted">by <%= User.find_by(id: potin.user_id).first_name%> </h6>
+        <p class="card-text"><%= @gossip.content[0..50] %>...</p> 
+         
+      </div>
+    </div>
+  </div>
+<%end%>
+</div>
+</div>
+</div>

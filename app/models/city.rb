@@ -1,3 +1,5 @@
 class City < ApplicationRecord
-  has_many :users
+  validates :zipcode, presence: true, length: {maximum: 5}
+    validates :name, presence: true
+    has_many :users
 end

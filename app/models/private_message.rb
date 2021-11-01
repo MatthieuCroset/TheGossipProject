@@ -1,2 +1,5 @@
-class PrivateMessage < ApplicationRecord
+  class PrivateMessage < ApplicationRecord
+    validates :content, presence: true, length: {maximum: 300}
+    belongs_to :sender, class_name: 'User'
+    belongs_to :recipient, class_name: 'User'
 end

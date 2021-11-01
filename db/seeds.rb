@@ -6,40 +6,31 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.destroy_all
+Tag.destroy_all
+Gossip.destroy_all
+ToTag.destroy_all
+City.destroy_all
 
-"User.create(first_name: Faker::Name.first_name  ,last_name:Faker::Name.last_name, email: Faker::Internet.email, age: Faker::Number.decimal_part(digits: 2), description: Faker::Quote.famous_last_words )
-
-City.create(name: Faker::Address.city, zip_code:Faker::Address.zip_code)
-
-Gossip.create(title:Faker::Music.instrument , content: Faker::Quote.famous_last_words)
-
-Tag.create(title:Faker::Music.instrument )
-
-PrivateMessage.create!(content:Faker::Quote.famous_last_words  )"
-
-10.times do |index|
-index = City.create(name: Faker::Address.city)
-  User.create(first_name: Faker::Name.first_name  ,last_name:Faker::Name.last_name, email: Faker::Internet.email, age: Faker::Number.decimal_part(digits: 2), description: Faker::Quote.famous_last_words, city:index  )
+10.times do
+ city = City.create!(name: Faker::Address.city, zipcode: Faker::Number.number(digits: 5))
 end
 
-10.times do |index|
-  City.create(name: Faker::Address.city, zip_code:Faker::Address.zip_code)
+puts "10 cities créées"
+
+10.times do
+	user = User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, description: Faker::Quote.famous_last_words, email: Faker::Internet.free_email, age: Faker::Number.number(digits: 2), city_id: rand(City.all.first.id..City.all.last.id))
 end
 
-20.times do |index|
-  Gossip.create(title:Faker::Music.instrument , content: Faker::Quote.famous_last_words)
+puts "10 users créés"
+
+21.times do
+  gossip = Gossip.create!(title: Faker::Color.color_name, content: Faker::Quote.famous_last_words, user_id: rand(User.all.first.id..User.all.last.id))
 end
 
+puts "20 gossips créés"
 
-
-20.times do |index|
-  tag = Tag.create(title:Faker::Music.instrument)
-  ToTag.create(tag: tag, gossip: Gossip.all.sample )
+10.times do
+  tag = Tag.create!(title: Faker::Address.city)
 end
-
-
-5.times do |index|
-  PrivateMessage.create(content:Faker::Quote.famous_last_words  )
-end
-
 
