@@ -13,38 +13,32 @@
   <body>
 
 
-  <h1 style="text-align: center; margin-top: 10px" class="display-3">Location</h1>
+  <h1 style="text-align: center; margin-top: 10px" class="display-3">Gossipers</h1>
   
   
-  
-<div class="container">
-
-  <div class="row">
-<% City.all.each do |city|%>
   
 
-  
+<div class="container" style="border-color: white;">
+
+<div class="row">
+<% User.all.each do |u|%>
+
   <div class="col">
   <div class="card mb-4" style="width: 17rem; height: 12rem;">
     <div class="card-body">
-    <h5 class="card-title"><%= city.name.capitalize%></h5>
-    
+    <h5 class="card-title"><%= u.first_name  %> <%= u.last_name  %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= u.email%> </h6>
+    <a href="<%=user_path(u.id)%>" class="btn btn-light"> More </a>
+
   
-   <div class="btn-group">
-   <a href="<%=city_path(city.id)%>" class="btn btn-light"> View all gossips</a>
- 
-   
-   </a>
 
    
-        </div>
      
-       
-        
+      
 
-    </div>
-   </div>
   </div>
+ </div>
+</div>
 <%end%>
 </div>
 </div>
@@ -60,3 +54,10 @@
     -->
   </body>
 </html>
+
+
+
+
+
+
+

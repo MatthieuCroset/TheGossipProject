@@ -1,0 +1,43 @@
+ 
+  
+<div class="container">
+
+<div class="row">
+
+
+
+
+
+
+
+
+
+<div class="col">
+<div class="card mb-4" style="width: 17rem; height: 12rem;">
+  <div class="card-body">
+  <h5 class="card-title"><%= User.find_by(id: @user.id).first_name  %> <%= User.find_by(id: @user.id).last_name  %> , <%= User.find_by(id: @user.id).age %> </h5>
+  <h6 class="card-subtitle mb-2 text-muted"><%= User.find_by(id: @user.id).email  %></h6>
+
+  <h7 class="card-subtitle mb-2 text-muted">From :<%= User.find_by(id: @user.id).city.name %></h7>
+  <h8 class="card-subtitle mb-2 text-muted">Description :<%= User.find_by(id: @user.id).description %></h8>
+ 
+ <div class="btn-group">
+ <a href="<%=users_path%>" class="btn btn-light"> Return </a>
+
+ </a>
+
+
+      </div>
+   
+     
+      
+
+  </div>
+ </div>
+</div>
+
+</div>
+</div>
+</div>
+
+</div>
