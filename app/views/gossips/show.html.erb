@@ -1,0 +1,43 @@
+ 
+  
+<div class="container">
+
+<div class="row">
+
+
+
+
+
+
+
+
+
+<div class="col">
+<div class="card mb-4" style="width: 17rem; height: 12rem;">
+  <div class="card-body">
+  <h5 class="card-title"><%= @gossip.title.capitalize!%></h5>
+  <h6 class="card-subtitle mb-2 text-muted">by <%= User.find_by(id: @gossip.user_id).first_name%> </h6>
+  <h7 class="card-subtitle mb-2 text-muted">at <%= User.find_by(id: @gossip.user_id).city.name%> </h7>
+ <p class="card-text"><%= @gossip.content %></p> 
+ <div class="btn-group">
+ 
+<a href="<%=edit_gossip_path(@gossip.id) %> " class="btn btn-light"  > Edit</a>
+ <a href="<%=gossip_path(@gossip.id) %>"  class="btn btn-danger" data-confirm = "Sur de toi ?"> Delete</a>
+ 
+ </a>
+
+
+      </div>
+   
+     
+      
+
+  </div>
+ </div>
+</div>
+
+</div>
+</div>
+</div>
+
+</div>

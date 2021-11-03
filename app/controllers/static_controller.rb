@@ -1,9 +1,9 @@
 class StaticController < ApplicationController
 
-def index
+def contact
 end
 
-def index_contact
+def team
 end
     
 end
