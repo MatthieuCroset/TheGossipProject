@@ -1,0 +1,20 @@
+
+<%= form_for :user, url: sessions_path do |f| %>
+
+  <div class = "form-group">
+
+ 
+
+  <label> Email</label>  
+  <%= f.text_field :email %>
+  </div>
+
+
+  <label> PASSWORD</label>
+  <%= f.text_field :password %>
+  </div>
+
+<button type="submit" class="btn btn-light"> Login </button>
+
+  <% end%>
+ 
