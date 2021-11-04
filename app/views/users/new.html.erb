@@ -1,0 +1,35 @@
+<h1> Welcome on TGP</h1>
+
+<%= form_for @user do |f| %>
+
+  <div class = "form-group">
+
+  <label> First name</label>
+  <%= f.text_field :first_name %>
+  </div> 
+  
+ 
+  <label> Last name</label>
+  <%= f.text_field :last_name %>
+  </div>
+
+  <label> City ID (check)</label>
+  <%= f.text_field :city_id %>
+  </div>
+
+  <label> Email</label>
+  <%= f.text_field :email %>
+  </div>
+
+  <label> Description</label>
+  <%= f.text_area :description %>
+  </div>
+
+  <label> PASSWORD</label>
+  <%= f.text_field :password %>
+  </div>
+
+<button type="submit" class="btn btn-light"> Signin </button>
+
+  <% end%>
+ 

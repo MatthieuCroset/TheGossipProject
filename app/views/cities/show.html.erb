@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col text-center">
+      <h1>Bienvenue sur la page de la ville <%= @city.name %> </h1><br>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-10">
+        <p>💁 Voici la liste des potins de cette ville :</p>
+      </div>
+    </div>
+  
+    <div class="row">
+      <% Gossip.all.each do |potin|%>
+        <%if potin.city_id == @city.id%>
+  
+          <div class="col">
+            <div class="card mb-4" style="width: 17rem; height: 12rem;">
+              <div class="card-body">
+                <h5 class="card-title"><%= potin.title.capitalize!%></h5>
+                <h6 class="card-subtitle mb-2 text-muted">by <%= User.find_by(id: potin.user_id).first_name%> </h6>
+                <p class="card-text"><%= potin.content[0..50] %>...</p> 
+                  <div class="col text-center">
+                    <a href="<%= gossip_path(potin.id)%>" class="btn btn-info">Voir plus</a>
+                  </div>
+              </div>
+            </div>
+          </div>
+        <%end%>
+      <%end%>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+

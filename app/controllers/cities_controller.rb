@@ -6,9 +6,10 @@ class CitiesController < ApplicationController
   end
 
   def show
+    
     @gossip = Gossip.find(params[:id])
-    @user = User.find(params[:id])
-    @city = City.find_by(id: @user.city_id)
+    #@user = User.find(params[:id])
+    @city = City.find_by(params[:id])
     # Méthode qui récupère le potin concerné et l'envoie à la view show (show.html.erb) pour affichage
   end
 
