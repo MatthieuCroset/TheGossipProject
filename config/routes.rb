@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   
-  get '/team', to: 'static#team'
-  get '/contact', to: 'static#contact'
-
+  #get '/team', to: 'static#team'
+  #get '/contact', to: 'static#contact'
+  resources :teams
+  resources :contacts
    resources :gossips
    resources :cities
    resources :users
